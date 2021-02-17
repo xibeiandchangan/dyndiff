@@ -2,11 +2,10 @@
 
 ## ida script
 
-Load a binary from `testbin/`
 
 Use IDA 'File -> Script file...'
 
-Running `func_extract.py` , functions list will be written in `testbin/funclist.json`.
+Running `func_extract.py` 
 
 ## test run
 

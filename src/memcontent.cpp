@@ -9,17 +9,17 @@ int memcontent_runtarget(void *aFuncPtr, funcprototype aFuncType, char aArgv[][5
     else if(tpid == 0){
         LOGDEBUG("in child processing");
         char msg[100];
-	    uint32_t i;
-	    uint32_t j;
+	uint32_t i;
+	uint32_t j;
         uint32_t re_value;
 
-	    LOGDEBUG("Before running:");
+	LOGDEBUG("Before running:");
         LOGDEBUG("argv[0]: %s",aArgv[0]);
         LOGDEBUG("argv[1]: %s",aArgv[1]);
-	    memset(msg, '\0', sizeof(msg));
+	memset(msg, '\0', sizeof(msg));
 
         if(aFuncType == IFPP){
-	        LOGDEBUG("the number of arguments: 2");
+	    LOGDEBUG("the number of arguments: 2");
             callfunc_memcontent(aFuncPtr, aFuncType, aArgv, &aRes);
 
         }else if(aFuncType == IFPPI){
@@ -36,11 +36,11 @@ int memcontent_runtarget(void *aFuncPtr, funcprototype aFuncType, char aArgv[][5
 	        msg[i] = aArgv[1][j];
 	    }
 	    LOGDEBUG("After running:");
-        LOGDEBUG("argv[0]: %s",aArgv[0]);
-        LOGDEBUG("argv[1]: %s",aArgv[1]);
+            LOGDEBUG("argv[0]: %s",aArgv[0]);
+            LOGDEBUG("argv[1]: %s",aArgv[1]);
 	    if( strcmp(aArgv[0],"dest_string: dest_string") == 0 || strcmp(aArgv[0],"sourcedest_string: dest_string") == 0 ) {
 	        if( strcmp(aRes,"dest_string: dest_string") == 0 || strcmp(aRes,"sourcedest_string: dest_string") == 0 || 
-               == 0 ){
+               re_value == 0 ){
                 int testfd1;
                 if((testfd1 = open("./testdata/testfile", O_RDWR|O_APPEND)) == -1){
                     FATALERROR("could not open ./testdata/testfile");
@@ -80,7 +80,7 @@ int memcontent_runtarget(void *aFuncPtr, funcprototype aFuncType, char aArgv[][5
 		            return 1;
 		        }
 	        }else if(result == tpid){
-		        if(WIFSIGNALED(status)){
+		    if(WIFSIGNALED(status)){
             	    LOGDEBUG("child get signal %d",WTERMSIG(status));
                     return 1;
         	    }else if(WIFEXITED(status)){

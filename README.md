@@ -10,4 +10,4 @@ Running `func_extract.py` , functions list will be written in `./testdata/allfun
 
 just run ```make && ./dyndiff```
 
-
+## run
